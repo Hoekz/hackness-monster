@@ -1,4 +1,4 @@
-#!/Users/zachzwy/Desktop/stepscores/venv/bin/python
+#!/Users/zachzwy/Desktop/hackness-monster/venv/bin/python
 
 import sys
 import getopt
