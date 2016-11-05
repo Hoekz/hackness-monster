@@ -23,17 +23,43 @@
     };
 
     var stepData = function(str){
+    	console.log(str);
     	var data = [];
     	var today = new Date();
 
-    	if(str == 'today'){
+    	if(str == 'today/1d'){
     		data.push({
     			dateTime: formatDate(today),
     			value: Math.floor((today.getHours() * 60 + today.getMinutes()) * (5 + Math.random()))
     		});
     	}else{
     		//TODO: parse date info and generate date list
+    		var date = str.split('/')[0];
+    		var period = str.split('/')[1];
     		dates = [];
+
+    		var iterator = new Date();
+    		var counter = 0, lastMonth, lastYear;
+    		iterator.setYear(parseInt(date.split('-')[0]));
+    		iterator.setMonth(parseInt(date.split('-')[1]) - 1);
+    		iterator.setDate(parseInt(date.split('-')[2]));
+
+    		while(1){
+    			counter++;
+    			lastMonth = iterator.getMonth();
+    			lastYear = iterator.getYear();
+    			iterator.setDate(iterator.getDate() - 1);
+
+    			if(period == '1m' && lastMonth != iterator.getMonth()) break;
+    			if(period == '1y' && lastYear != iterator.getYear()) break;
+    			
+    			if(iterator < new Date()){
+    				dates.push(new Date(iterator.getTime()));
+    			}
+
+    			if(period == '1d') break;
+    			if(period == '1w' && counter == 7) break;
+    		}
 
     		dates.forEach(function(date){
     			data.push({

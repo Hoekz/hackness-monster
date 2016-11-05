@@ -28,7 +28,7 @@ var fit = (function(){
 
 	fit.fetch.day = function(date){
 		date = (date ? formatDate(date) : 'today');
-		return fit.fetch('activities/steps/date/' + date);
+		return fit.fetch('activities/steps/date/' + date + '/1d');
 	};
 
 	fit.fetch.week = function(date){
@@ -47,7 +47,7 @@ var fit = (function(){
 
 	fit.fetch.year = function(date){
 		date = date || (new Date());
-		date.setYear(date.getYear() + 1);
+		date.setYear(date.getYear() + 1901);
 		date.setMonth(0);
 		date.setDate(0);
 
