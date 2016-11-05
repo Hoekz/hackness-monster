@@ -23,7 +23,6 @@
     };
 
     var stepData = function(str){
-    	console.log(str);
     	var data = [];
     	var today = new Date();
 
@@ -52,7 +51,7 @@
 
     			if(period == '1m' && lastMonth != iterator.getMonth()) break;
     			if(period == '1y' && lastYear != iterator.getYear()) break;
-    			
+
     			if(iterator < new Date()){
     				dates.push(new Date(iterator.getTime()));
     			}
@@ -64,7 +63,7 @@
     		dates.forEach(function(date){
     			data.push({
     				dateTime: formatDate(date),
-    				value: Math.floor(1440 * (5 + Math.random()))
+    				value: Math.floor(1440 * (4 + 2 * Math.random()))
     			})
     		});
     	}

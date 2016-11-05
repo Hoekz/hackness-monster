@@ -28,13 +28,17 @@ var fit = (function(){
 
 	fit.fetch.day = function(date){
 		date = (date ? formatDate(date) : 'today');
-		return fit.fetch('activities/steps/date/' + date + '/1d');
+		return fit.fetch('activities/steps/date/' + date + '/1d').then(function(data){
+			return data["activities-log-steps"];
+		});
 	};
 
 	fit.fetch.week = function(date){
 		date = date || (new Date());
-		date.setDate(date.getDate() - date.getDay() + 6);
-		return fit.fetch('activities/steps/date/' + formatDate(date) + '/1w');
+		date.setDate(date.getDate() - date.getDay() + 7);
+		return fit.fetch('activities/steps/date/' + formatDate(date) + '/1w').then(function(data){
+			return data["activities-log-steps"];
+		});
 	};
 
 	fit.fetch.month  = function(date){
@@ -42,7 +46,9 @@ var fit = (function(){
 		date.setMonth(date.getMonth() + 1);
 		date.setDate(0);
 
-		return fit.fetch('activities/steps/date/' + formatDate(date) + '/1m');
+		return fit.fetch('activities/steps/date/' + formatDate(date) + '/1m').then(function(data){
+			return data["activities-log-steps"];
+		});
 	};
 
 	fit.fetch.year = function(date){
@@ -51,7 +57,9 @@ var fit = (function(){
 		date.setMonth(0);
 		date.setDate(0);
 
-		return fit.fetch('activities/steps/date/' + formatDate(date) + '/1y');
+		return fit.fetch('activities/steps/date/' + formatDate(date) + '/1y').then(function(data){
+			return data["activities-log-steps"];
+		});
 	};
 
 	fit.fetch.me = function(){
