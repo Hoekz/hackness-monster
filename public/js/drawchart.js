@@ -5,12 +5,11 @@ var drawData = (function(){
     var chart;
     var options = {
         title: 'Steps Over Time',
-        width: 400,
-        height: 250,
+        chartArea:{left: '12.5%', width:"85%"},
         backgroundColor: '#ffffff',
         legend: {position: 'none'},
         hAxis: {
-            format: 'MMM dd, yyyy',
+            format: 'MMM dd',
             gridlines: {color: 'none'}
         },
         vAxis: {
@@ -44,6 +43,8 @@ var drawData = (function(){
                 entry.value
             ];
         }));
+
+        options.title = 'Steps Over Time (Average: ' + average(data) + ' steps)';
 
         draw(table);
     }

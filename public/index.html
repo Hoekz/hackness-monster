@@ -1,13 +1,55 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	
+	<meta charset="utf-8">
+	<title>Step Scores</title>
+	<link href="css/style.css" rel="stylesheet"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body>
-	<div id="chart_div"></div>
-	<button id='week'>This Week</button>
-	<button id='month'>This Month</button>
-	<button id='year'>This Year</button>
-	<button id='last-month'>Last Month</button>
+	<div class="navbar bg-theme dark">
+		<div class="center-fill section">
+			<div>Step Scores</div>
+			<div class="spacer"></div>
+			<div>Login</div>
+		</div>
+	</div>
+	<div class="center-fill section">
+		<div class="third">
+			<div class="card">Advertiser Rewards</div>
+			<div class="card">First Column</div>
+			<div class="card">First Column</div>
+			<div class="card">
+				<div>First Column</div>
+				<div class="body">
+					This one has more content that shows up on expansion!
+				</div>
+			</div>
+			<div class="card">First Column</div>
+			<div class="card">First Column</div>
+		</div>
+		<div class="third">
+			<div class="card">
+				<div>
+					<div class="round-small" style="background-image: url(img/sample.png)"></div>
+					Coorporate Rewards
+				</div>
+				<div class="body">
+					This one has more content that shows up on expansion!
+				</div>
+			</div>
+			<div class="card">Second Column</div>
+			<div class="card">Second Column</div>
+			<div class="card">Second Column</div>
+		</div>
+		<div class="third">
+			<div id="chart_div"></div>
+			<button id='week'>This Week</button>
+			<button id='month'>This Month</button>
+			<button id='year'>This Year</button>
+			<button id='last-month'>Last Month</button>
+		</div>
+	</div>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script src="js/http.js"></script>
 	<script src="js/apistub.js"></script>

@@ -89,3 +89,17 @@ var fit = (function(){
 
 	return fit;
 })();
+
+var average = function(data){
+	if("activities-log-steps" in data)
+		return average(data["activities-log-steps"]);
+
+	var total = 0;
+	var count = data.length;
+
+	for(var i = 0; i < count; i++){
+		total += data[i].value;
+	}
+
+	return Math.floor(total / count);
+};
