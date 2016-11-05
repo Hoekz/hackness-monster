@@ -1,45 +1,29 @@
+var formatDate = function(date){
+	date = date || new Date();
+	var year = (date.getYear() + 1900);
+	var month = date.getMonth() + 1;
+	month < 10 ? month = '0' + month : null;
+	var day = date.getDate();
+	day < 10 ? day = '0' + day : null;
+	return year + '-' + month + '-' + day;
+};
+
 var fit = (function(){
-	var authToken = localStorage.getItem('authToken') || '';
+	var authToken = '';
 	var baseurl = "https://api.fitbit.com/1/user/-/";
-	var data = {};
 	var fit = {};
 
-	var formatDate = function(date){
-		date = date || new Date();
-		var year = (date.getYear() + 1900);
-		var month = date.getMonth() + 1;
-		month < 10 ? month = '0' + month : null;
-		var day = date.getDate();
-		day < 10 ? day = '0' + day : null;
-		return year + '-' + month + '-' + day;
-	};
-
 	fit.fetch = function(url){
-		if(url in data){
-			return new Promise.resolve(data[url]);
-		}
-
 		if(!authToken){
-			return new Promise.resolve({error: 'not logged in'});
+			return Promise.resolve({error: 'not logged in'});
 		}
 
-		var xhr = new XMLHttpRequest();
-		var prom =  new Promise(function(resolve, reject){
-			xhr.onload = function(){
-				if(xhr.status == 200 || xhr.status == 304){
-					data[url] = JSON.parse(xhr.responseText);
-					resolve(data[url]);
-				}else{
-					reject({error: 'something went wrong'});
-				}
-			};
+		return http.get({
+			url: baseurl + url + '.json',
+			headers: {
+				'Authorization': 'Bearer ' + authToken
+			}
 		});
-
-		xhr.setRequestHeader('Authorization', 'Bearer ' + authToken);
-		xhr.open("GET", baseurl + url + '.json');
-		xhr.send();
-
-		return prom;
 	};
 
 	fit.fetch.day = function(date){
@@ -89,6 +73,10 @@ var fit = (function(){
 		}
 
 		window.location.replace(url + "?" + queryStr.join('&'));
+	};
+
+	fit.setAuth = function(token){
+		authToken = token.toString();
 	};
 
 	return fit;
