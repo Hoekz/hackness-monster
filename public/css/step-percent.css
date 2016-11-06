@@ -1,0 +1,30 @@
+.step-percent {
+	width: 2em;
+	height: 2rem;
+	margin-top: -0.75rem;
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-end;
+	float: left;
+}
+
+.step-percent .pillar {
+	background: rgb(220, 20, 20);
+	margin: 0 0.05rem;
+	height: 0;
+	flex: 1;
+	transition: 0.5s linear height;
+}
+
+.unachieved-background {
+	background: #ccc;
+	color: #666;
+}
+
+.claim {
+	width: 60%;
+}
+
+.unachieved-background .claim {
+	display: none;
+}

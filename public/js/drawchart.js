@@ -5,6 +5,7 @@ var drawData = (function(){
     var chart;
     var options = {
         title: 'Steps Over Time',
+        titleTextStyle: {fontName: 'Roboto'},
         chartArea:{left: '12.5%', width:"85%"},
         backgroundColor: '#ffffff',
         legend: {position: 'none'},

@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Step Scores</title>
 	<link href="css/style.css" rel="stylesheet"/>
+	<link href="css/step-percent.css" rel="stylesheet"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body>
@@ -16,33 +17,19 @@
 	</div>
 	<div class="center-fill section">
 		<div class="third">
-			<div class="card">Advertiser Rewards</div>
-			<div class="card">First Column</div>
-			<div class="card">First Column</div>
-			<div class="card">
-				<div>First Column</div>
-				<div class="body">
-					This one has more content that shows up on expansion!
-				</div>
-			</div>
-			<div class="card">First Column</div>
-			<div class="card">First Column</div>
+			<h3>Coupons From Companies</h3>
+			<h4 id="coupons-day">Daily</h4>
+			<h4 id="coupons-week">Weekly</h4>
+			<h4 id="coupons-month">Monthly</h4>
 		</div>
 		<div class="third">
-			<div class="card">
-				<div>
-					<div class="round-small" style="background-image: url(img/sample.png)"></div>
-					Coorporate Rewards
-				</div>
-				<div class="body">
-					This one has more content that shows up on expansion!
-				</div>
-			</div>
-			<div class="card">Second Column</div>
-			<div class="card">Second Column</div>
-			<div class="card">Second Column</div>
+			<h3>Employee Incentives</h3>
+			<h4 id="employee-day">Daily</h4>
+			<h4 id="employee-week">Weekly</h4>
+			<h4 id="employee-month">Monthly</h4>
 		</div>
 		<div class="third">
+			<h3>Your Data</h3>
 			<div id="chart_div"></div>
 			<button id='week'>This Week</button>
 			<button id='month'>This Month</button>
@@ -55,5 +42,6 @@
 	<script src="js/apistub.js"></script>
 	<script src="js/fitbit.js"></script>
 	<script src="js/drawchart.js"></script>
+	<script src="js/step-percent.js"></script>
 </body>
 </html>
