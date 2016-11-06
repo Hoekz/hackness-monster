@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html, body {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	font-size: 16px;
+	font-family: 'Roboto', sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+	display: block;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.bg-theme { background-color: #00aae9; }
+.bg-theme.dark { background-color: #0077a7; }
+.bg-theme.light { background-color: #00ccf9; }
+
+.fg-theme { color: #00aae9; }
+.fg-theme.dark { color: #0077a7; }
+.fg-theme.light { color: #00ccf9; }
+
+.center-fill {
+	width: 100%;
+	max-width: 900px;
+	margin: auto;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+.navbar {
+	z-index: 999;
+	width: 100%;
+	margin-bottom: 1rem;
+	height: 2.5rem;
+	box-shadow: 0 0.2rem 0.2rem 0.2rem rgba(0,0,0,0.25);
+	background: white;
+	padding: 0.25rem;
+}
+
+.spacer {
+	flex: 1;
+	-webkit-flex: 1;
+}
+
+#logo {
+	background-image: url(../img/logo.png);
+	width: 12.5rem;
+	height: 2.5rem;
+	background-size: 100%;
+	background-position: center;
+	margin-top: -0.5rem;
+	cursor: pointer;
+}
+
+#enter-walk {
+	display: none;
+}
+
+@media (max-width: 400px) {
+	#hamburger {
+		display: none;
+	}
+
+	#enter-walk {
+		min-width: 15rem;
+		display: block;
+		margin: auto;
+	}
+}
+
+#account, #logout {
+	transition: 0.25s ease all;
+    padding: 0.75rem;
+    height: 2.5rem;
+    margin-top: -0.25rem;
+    font-size: 1rem;
+    cursor: pointer;
+    float: left;
+}
+
+#account:hover, #logout:hover {
+	background: #0077a7;
+	color: white;
+}
+
+.section {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap-reverse;
+	-webkit-flex-direction: row;
+	-webkit-flex-wrap: wrap-reverse;
+	justify-content: space-between;
+	-webkit-justify-content: space-between;
+	margin-bottom: 1rem;
+}
+
+.third {
+	flex: 1;
+	-webkit-flex: 1;
+	min-width: 300px;
+	text-align: center;
+}
+
+.third h3 {
+	padding-bottom: 0.5rem;
+	margin: 1rem;
+	border-bottom: 3px solid #777;
+}
+
+.tab-bar {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap-reverse;
+	-webkit-flex-direction: row;
+	-webkit-flex-wrap: wrap-reverse;
+	justify-content: space-between;
+	-webkit-justify-content: space-between;
+	padding: 0 1rem;
+}
+
+.tab-bar h4 {
+	text-align: center;
+	font-weight: 600;
+	flex: 1;
+	-webkit-flex: 1;
+	padding: 0.5rem;
+	cursor: pointer;
+	transition: 0.25s ease all;
+}
+
+.tab-bar h4.selected, .tab-bar h4:hover {
+	background: #0077a7;
+	color: white;
+}
+
+.hide {
+	display: none;
+}
+
+.card {
+	overflow: hidden;
+	padding: 1rem;
+	max-height: 3rem;
+	margin: 0.25rem 1rem;
+	transition: 0.2s ease all;
+	box-shadow: 0 .1rem .1rem -.1rem rgba(0,0,0,0.5)
+}
+
+.card .body {
+	margin-top: 1rem;
+}
+
+.card.claimed {
+	background: #0077a7;
+	color: white;
+}
+
+.card:hover, .card:focus {
+	z-index: 999;
+	margin: 0.5rem 0.25rem;
+	max-height: 15rem;
+	box-shadow: 0 .25rem .2rem 0 rgba(0,0,0,0.25);
+}
+
+.round-small {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 2rem;
+	background-size: 100%;
+	position: absolute;
+	margin-top: -0.5rem;
+}
+
+button {
+	width: 45%;
+	color: black;
+	padding: 0.5rem 1.5rem;
+	margin: 2%;
+	min-width: 100px;
+	border: 1px solid black;
+	border-radius: 1000px;
+	display: inline-block;
+	background-color: #fff;
+	transition: 0.25s ease all;
+}
+
+button:hover, button.selected {
+	color: white;
+	background-color: #0077a7;
+	border: 1px solid #0077a7;
+}
+
+.table {
+	width: 100%;
+}
+
+.table .row {
+	width: 100%;
+	padding: 0.75rem;
+	height: 2.5rem;
+}
+
+.table .row:nth-child(odd) {
+	background: #eee;
+}
+
+.table .row .row-label {
+	float: left;
+}
+
+.table .row .row-value {
+	float: right;
+}
+
+#walk-mode {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: 0.5s linear all;
+    pointer-events: none;
+    perspective: 600px;
+	background: white;
+}
+
+#walk-mode.open {
+	opacity: 1;
+	pointer-events: all;
+}
+
+#walk-mode-body {
+	max-width: 50rem;
+	text-align: center;
+	margin: auto;
+	margin-top: 8rem;
+}
+
+#exit-walk {
+	min-width: 15rem;
+}
+
+.big-num {
+	color: #0077a7;
+	font-size: 2.5rem;
+	display: inline-block;
+}

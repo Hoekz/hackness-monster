@@ -1,0 +1,83 @@
+.step-percent {
+	width: 2em;
+	height: 2rem;
+	margin-top: -0.75rem;
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-end;
+	-webkit-justify-content: space-around;
+	-webkit-align-items: flex-end;
+	float: left;
+}
+
+.step-percent .pillar {
+	background: rgb(220, 20, 20);
+	box-shadow: .1rem .1rem 0 0 rgba(0,0,0,0.5);
+	margin: 0 0.05rem;
+	height: 0;
+	flex: 1;
+	-webkit-flex: 1;
+	transition: 0.5s linear height;
+}
+
+.unachieved-background {
+	background: #ccc;
+	color: #666;
+}
+
+.claim {
+	width: 60%;
+}
+
+.unachieved-background .claim {
+	display: none;
+}
+
+#overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: 0.5s linear all;
+    pointer-events: none;
+    perspective: 600px;
+	background: rgba(0,0,0,0.5);
+}
+
+#overlay.open {
+	opacity: 1;
+	pointer-events: all;
+}
+
+#overlay-body {
+	transition: 0.25s cubic-bezier(0.4, 1, 0.6, 1) all;
+	transition-delay: 0s;
+	position: relative;
+	width: 100%;
+	max-width: 20rem;
+	height: 9rem;
+	margin: 10rem auto;
+	text-align: center;
+	padding: 2rem;
+	background: white;
+	box-shadow: 0 0 1rem 0.5rem rgba(0,0,0,0.5);
+	transform: rotateY(90deg);
+}
+
+.open #overlay-body {
+	transition: 0.25s cubic-bezier(0.4, 1.1, 0.6, 1.1) all;
+	transition-delay: 0.25s;
+	transform: rotateY(0deg);
+}
+
+hr {
+	border: 0;
+	clear: both;
+	display: block;
+	width: 25%;
+	background-color: black;
+	height: 1px;
+	margin: 1rem auto;
+}
