@@ -91,3 +91,17 @@ prizes.forEach(function(prize, index){
 setTimeout(function(){
 	updateStepPercents(5000, 10600, 3650);
 }, 1000);
+
+var overlay = document.getElementById('overlay');
+
+document.body.addEventListener('click', function(e){
+	if(e.target.classList.contains('claim')){
+		overlay.classList.add('open');
+		var card = e.target.parentNode.parentNode;
+		card.parentNode.removeChild(card);
+	}
+});
+
+overlay.addEventListener('click', function(e){
+	overlay.classList.remove('open');
+});

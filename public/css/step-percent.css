@@ -31,3 +31,42 @@
 .unachieved-background .claim {
 	display: none;
 }
+
+#overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: 0.5s linear all;
+    pointer-events: none;
+    perspective: 600px;
+	background: rgba(0,0,0,0.5);
+}
+
+#overlay.open {
+	opacity: 1;
+	pointer-events: all;
+}
+
+#overlay-body {
+	transition: 0.25s cubic-bezier(0.4, 1, 0.6, 1) all;
+	transition-delay: 0s;
+	position: relative;
+	width: 100%;
+	max-width: 20rem;
+	height: 7rem;
+	margin: 10rem auto;
+	text-align: center;
+	padding: 2rem;
+	background: white;
+	box-shadow: 0 0 1rem 0.5rem rgba(0,0,0,0.5);
+	transform: rotateY(90deg);
+}
+
+.open #overlay-body {
+	transition: 0.25s cubic-bezier(0.4, 1.1, 0.6, 1.1) all;
+	transition-delay: 0.25s;
+	transform: rotateY(0deg);
+}
