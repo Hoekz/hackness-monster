@@ -5,6 +5,8 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: flex-end;
+	-webkit-justify-content: space-around;
+	-webkit-align-items: flex-end;
 	float: left;
 }
 
@@ -13,6 +15,7 @@
 	margin: 0 0.05rem;
 	height: 0;
 	flex: 1;
+	-webkit-flex: 1;
 	transition: 0.5s linear height;
 }
 

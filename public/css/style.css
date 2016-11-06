@@ -47,12 +47,16 @@ html, body {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap-reverse;
+	-webkit-flex-direction: row;
+	-webkit-flex-wrap: wrap-reverse;
 	justify-content: space-between;
+	-webkit-justify-content: space-between;
 	margin-bottom: 1rem;
 }
 
 .third {
 	flex: 1;
+	-webkit-flex: 1;
 	min-width: 300px;
 	text-align: center;
 }
