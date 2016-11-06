@@ -23,7 +23,7 @@ var drawData = (function(){
     function initChart() {
         chart = new google.visualization.LineChart(document.getElementById('chart_div'));
         fit.setAuth('fakeToken');
-        fit.fetch.week().then(function(data){
+        fit.fetch.month().then(function(data){
             drawData(data);
         });
     }
@@ -51,7 +51,7 @@ var drawData = (function(){
     }
 })();
 
-var period = 'week';
+var period = 'month';
 
 var drawPeriod = function(period, date){
     fit.fetch[period](date).then(function(data){
