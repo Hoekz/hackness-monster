@@ -25,7 +25,7 @@ for(var i = 0; i < 9; i++){
 	});
 }
 
-var updateStepPercents = function(daySteps, weekSteps, monthSteps){
+var updateStepPercents = function(daySteps, weekSteps, monthSteps, yearSteps){
 	Array.prototype.slice.call(document.querySelectorAll('.step-percent')).forEach(function(ind){
 		var prize = prizes[ind.getAttribute('prize-id')];
 		var steps = daySteps;
@@ -87,10 +87,6 @@ prizes.forEach(function(prize, index){
 		</div>`
 	);
 });
-
-setTimeout(function(){
-	updateStepPercents(5000, 10600, 3650);
-}, 1000);
 
 var overlay = document.getElementById('overlay');
 

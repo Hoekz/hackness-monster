@@ -29,7 +29,7 @@ var fit = (function(){
 	fit.fetch.day = function(date){
 		date = (date ? formatDate(date) : 'today');
 		return fit.fetch('activities/steps/date/' + date + '/1d').then(function(data){
-			return data["activities-log-steps"];
+			return data["activities-log-steps"][0].value;
 		});
 	};
 
@@ -90,6 +90,20 @@ var fit = (function(){
 	return fit;
 })();
 
+var total = function(data){
+	if("activities-log-steps" in data)
+		return total(data["activities-log-steps"]);
+
+	var total = 0;
+	var count = data.length;
+
+	for(var i = 0; i < count; i++){
+		total += data[i].value;
+	}
+
+	return total;
+}
+
 var average = function(data){
 	if("activities-log-steps" in data)
 		return average(data["activities-log-steps"]);
@@ -103,3 +117,43 @@ var average = function(data){
 
 	return Math.floor(total / count);
 };
+
+var formatNum = function(x){
+	return Math.floor(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
+(function(){
+	var daily, weekly, monthly, yearly;
+
+	var table = document.querySelector('.table');
+
+	fit.setAuth('fakeToken');
+
+	fit.fetch.day().then(function(data){
+		table.innerHTML = table.innerHTML.replace('{{day}}', formatNum(data));
+		daily = data;
+	});
+
+	fit.fetch.week().then(function(data){
+		table.innerHTML = table.innerHTML.replace('{{week}}', formatNum(total(data)));
+		table.innerHTML = table.innerHTML.replace('{{weekRun}}', formatNum(average(data)));
+		table.innerHTML = table.innerHTML.replace('{{weekAvg}}', formatNum(total(data) / 7));
+		weekly = total(data) / 7;
+	});
+
+	fit.fetch.month().then(function(data){
+		table.innerHTML = table.innerHTML.replace('{{month}}', formatNum(total(data)));
+		table.innerHTML = table.innerHTML.replace('{{monthRun}}', formatNum(average(data)));
+		table.innerHTML = table.innerHTML.replace('{{monthAvg}}', formatNum(total(data) / 30));
+		monthly = total(data) / 30;
+	});
+
+	fit.fetch.year().then(function(data){
+		table.innerHTML = table.innerHTML.replace('{{year}}', formatNum(total(data)));
+		table.innerHTML = table.innerHTML.replace('{{yearRun}}', formatNum(average(data)));
+		table.innerHTML = table.innerHTML.replace('{{yearAvg}}', formatNum(total(data) / 365));
+		yearly = total(data) / 365;
+
+		updateStepPercents(daily, weekly, monthly, yearly);
+	});
+})();

@@ -19,14 +19,14 @@
 		<div class="third">
 			<h3>Coupons From Companies</h3>
 			<h4 id="coupons-day">Daily</h4>
-			<h4 id="coupons-week">Weekly</h4>
-			<h4 id="coupons-month">Monthly</h4>
+			<h4 id="coupons-week">Weekly (Per Day)</h4>
+			<h4 id="coupons-month">Monthly (Per Day)</h4>
 		</div>
 		<div class="third">
 			<h3>Employee Incentives</h3>
 			<h4 id="employee-day">Daily</h4>
-			<h4 id="employee-week">Weekly</h4>
-			<h4 id="employee-month">Monthly</h4>
+			<h4 id="employee-week">Weekly (Per Day)</h4>
+			<h4 id="employee-month">Monthly (Per Day)</h4>
 		</div>
 		<div class="third">
 			<h3>Your Data</h3>
@@ -35,6 +35,48 @@
 			<button id='month'>This Month</button>
 			<button id='year'>This Year</button>
 			<button id='last-month'>Last Month</button>
+			<div class="table">
+				<div class="row">
+					<div class="row-label">Daily Total</div>
+					<div class="row-value">{{day}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Weekly Total</div>
+					<div class="row-value">{{week}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Weekly Running Average</div>
+					<div class="row-value">{{weekRun}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Weekly Average</div>
+					<div class="row-value">{{weekAvg}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Monthly Total</div>
+					<div class="row-value">{{month}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Monthly Running Average</div>
+					<div class="row-value">{{monthRun}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Monthly Average</div>
+					<div class="row-value">{{monthAvg}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Yearly Total</div>
+					<div class="row-value">{{year}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Yearly Running Average</div>
+					<div class="row-value">{{yearRun}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Yearly Average</div>
+					<div class="row-value">{{yearAvg}}</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div id='overlay'>

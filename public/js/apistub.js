@@ -29,7 +29,7 @@
     	if(str == 'today/1d'){
     		data.push({
     			dateTime: formatDate(today),
-    			value: Math.floor((today.getHours() * 60 + today.getMinutes()) * (5 + Math.random()))
+    			value: Math.floor((today.getHours() * 60 + today.getMinutes()) * (5 + 3 * Math.random()))
     		});
     	}else{
     		//TODO: parse date info and generate date list
@@ -63,7 +63,7 @@
     		dates.forEach(function(date){
     			data.push({
     				dateTime: formatDate(date),
-    				value: Math.floor(1440 * (4 + 2 * Math.random()))
+    				value: Math.floor(1440 * (5 + 3 * Math.random()))
     			})
     		});
     	}
