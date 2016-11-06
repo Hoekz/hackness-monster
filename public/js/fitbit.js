@@ -115,7 +115,7 @@ var average = function(data){
 		total += data[i].value;
 	}
 
-	return Math.floor(total / count);
+	return Math.floor(total / Math.max(count, 1));
 };
 
 var formatNum = function(x){

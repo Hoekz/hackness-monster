@@ -67,11 +67,34 @@ html, body {
 	border-bottom: 3px solid #777;
 }
 
-.third h4 {
+.tab-bar {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap-reverse;
+	-webkit-flex-direction: row;
+	-webkit-flex-wrap: wrap-reverse;
+	justify-content: space-between;
+	-webkit-justify-content: space-between;
+	padding: 0 1rem;
+}
+
+.tab-bar h4 {
+	text-align: center;
 	font-weight: 600;
-	margin: 1rem 4rem;
-	padding-bottom: 0.25rem;
-	border-bottom: 1px solid #777;
+	flex: 1;
+	-webkit-flex: 1;
+	padding: 0.5rem;
+	cursor: pointer;
+	transition: 0.25s ease all;
+}
+
+.tab-bar h4.selected, .tab-bar h4:hover {
+	background: #0077a7;
+	color: white;
+}
+
+.hide {
+	display: none;
 }
 
 .card {

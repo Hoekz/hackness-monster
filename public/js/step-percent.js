@@ -53,24 +53,23 @@ var updateStepPercents = function(daySteps, weekSteps, monthSteps, yearSteps){
 		`rgb(${red}, ${green}, 20)`;
 	});
 };
-
 var sections = {
 	coupon: {
-		day: document.querySelector('#coupons-day'),
-		week: document.querySelector('#coupons-week'),
-		month: document.querySelector('#coupons-month')
+		day: document.querySelector('#coupon-day-body'),
+		week: document.querySelector('#coupon-week-body'),
+		month: document.querySelector('#coupon-month-body')
 	},
 	employee: {
-		day: document.querySelector('#employee-day'),
-		week: document.querySelector('#employee-week'),
-		month: document.querySelector('#employee-month')
+		day: document.querySelector('#employee-day-body'),
+		week: document.querySelector('#employee-week-body'),
+		month: document.querySelector('#employee-month-body')
 	}
 };
 
 prizes = prizes.sort(function(a, b){ return a > b ? -1 : a == b ? 0 : 1});
 
 prizes.forEach(function(prize, index){
-	sections[prize.type][prize.period].insertAdjacentHTML('afterend', 
+	sections[prize.type][prize.period].insertAdjacentHTML('afterbegin', 
 		`<div class="card">
 			<div>
 				<div class="step-percent" prize-id="${index}">
@@ -101,3 +100,27 @@ document.body.addEventListener('click', function(e){
 overlay.addEventListener('click', function(e){
 	overlay.classList.remove('open');
 });
+
+var switchTab = function(c, t){
+	return function(){
+		for(var tab in sections[c]){
+			sections[c][tab].classList.add('hide');
+			tabs[c][tab].classList.remove('selected');
+		}
+
+		sections[c][t].classList.remove('hide');
+		tabs[c][t].classList.add('selected');
+	}
+};
+
+var tabs = {};
+for(var col in sections){
+	tabs[col] = {};
+	for(var tab in sections[col]){
+		tabs[col][tab] = document.querySelector('#' + col + '-' + tab);
+		tabs[col][tab].addEventListener('click', switchTab(col, tab));
+	}
+}
+
+switchTab('coupon', 'day')();
+switchTab('employee', 'day')();
