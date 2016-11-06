@@ -1,14 +1,117 @@
 <!DOCTYPE html>
-<html>
-  <head>
-
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <h1 class="title">Step Scores</h1>
-      </div>
-    </header>
-    
-  </body>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Step Scores</title>
+	<link href="css/style.css" rel="stylesheet"/>
+	<link href="css/step-percent.css" rel="stylesheet"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+<body>
+	<div class="navbar">
+		<div class="center-fill section">
+			<div id="logo"></div>
+			<div class="spacer"></div>
+			<div id="hamburger">
+				<div id="account">My Account</div>
+				<div id="logout">Logout</div>
+			</div>
+		</div>
+	</div>
+	<div class="center-fill"><button id="enter-walk">Enter Walk Mode</button></div>
+	<div class="center-fill section">
+		<div class="third">
+			<h3>Coupons From Companies</h3>
+			<div class="tab-bar">
+				<h4 id="coupon-day">Daily</h4>
+				<h4 id="coupon-week">Weekly</h4>
+				<h4 id="coupon-month">Monthly</h4>
+			</div>
+			<div id="coupon-day-body"></div>
+			<div id="coupon-week-body"></div>
+			<div id="coupon-month-body"></div>
+		</div>
+		<div class="third">
+			<h3>Employee Incentives</h3>
+			<div class="tab-bar">
+				<h4 id="employee-day">Daily</h4>
+				<h4 id="employee-week">Weekly</h4>
+				<h4 id="employee-month">Monthly</h4>
+			</div>
+			<div id="employee-day-body"></div>
+			<div id="employee-week-body"></div>
+			<div id="employee-month-body"></div>
+		</div>
+		<div class="third">
+			<h3>Your Data</h3>
+			<div id="chart_div"></div>
+			<button id='week'>This Week</button>
+			<button id='month' class="selected">This Month</button>
+			<button id='year'>This Year</button>
+			<button id='last-month'>Last Month</button>
+			<div class="table">
+				<div class="row">
+					<div class="row-label">Daily Total</div>
+					<div class="row-value">{{day}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Weekly Total</div>
+					<div class="row-value">{{week}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Weekly Average</div>
+					<div class="row-value">{{weekAvg}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Weekly Average to Date</div>
+					<div class="row-value">{{weekRun}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Monthly Total</div>
+					<div class="row-value">{{month}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Monthly Average</div>
+					<div class="row-value">{{monthAvg}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Monthly Average to Date</div>
+					<div class="row-value">{{monthRun}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Yearly Total</div>
+					<div class="row-value">{{year}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Yearly Average</div>
+					<div class="row-value">{{yearAvg}}</div>
+				</div>
+				<div class="row">
+					<div class="row-label">Yearly Average to Date</div>
+					<div class="row-value">{{yearRun}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id='overlay'>
+		<div id='overlay-body'>
+			<div>You have successfully claimed this prize.</div>
+			<hr>
+			<div>Click anywhere to close.</div>
+		</div>
+	</div>
+	<div id='walk-mode'>
+		<div id="walk-mode-body">
+			<div>You have walked <div class="big-num">3245</div> steps today.</div>
+			<div><div class="big-num">1755</div> steps to today's goal.</div>
+			<button id="exit-walk">Return to Dashboard</button>
+		</div>
+	</div>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="js/http.js"></script>
+	<script src="js/apistub.js"></script>
+	<script src="js/fitbit.js"></script>
+	<script src="js/drawchart.js"></script>
+	<script src="js/step-percent.js"></script>
+</body>
 </html>

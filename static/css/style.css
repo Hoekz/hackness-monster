@@ -1,0 +1,54 @@
+html {
+    background-image: url(../img/background-image-laptop.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-blend-mode: multiply;   
+}
+
+.logo {
+	width: 15rem;
+	height: 4rem;
+	position: absolute;
+	background-size: 100%;
+	margin-top: -0.5rem;
+	top: 0;
+	
+}
+
+.step_footprint {
+	width: 20rem;
+	height: 2.75rem;
+	position: absolute;
+	background-size: 100%;
+	margin: auto;
+	top: 18rem;
+	left: 0;
+	right: 0;
+	max-width: 90%;
+	background-repeat: no-repeat;
+}
+
+.signup {
+	margin: auto;
+	top: 21rem;
+	position: absolute;
+	left: 0;
+	right: 0;
+	text-align: center;
+}
+
+.username, .password {
+	margin: auto;
+	margin-top: 0.5rem;
+}
+
+#nameInput, #passwordInput {
+	width: 14rem;
+	border: 0.5px solid black;
+	border-radius: 2px;
+	background: transparent;
+}
