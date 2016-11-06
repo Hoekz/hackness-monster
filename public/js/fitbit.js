@@ -153,7 +153,9 @@ var formatNum = function(x){
 		table.innerHTML = table.innerHTML.replace('{{yearRun}}', formatNum(average(data)));
 		table.innerHTML = table.innerHTML.replace('{{yearAvg}}', formatNum(total(data) / 365));
 		yearly = total(data) / 365;
-
-		updateStepPercents(daily, weekly, monthly, yearly);
 	});
+
+	setTimeout(function(){
+		updateStepPercents(daily, weekly, monthly, yearly);
+	}, 1000);
 })();
