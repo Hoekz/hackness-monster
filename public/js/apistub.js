@@ -52,7 +52,7 @@
     			if(period == '1m' && lastMonth != iterator.getMonth()) break;
     			if(period == '1y' && lastYear != iterator.getYear()) break;
 
-    			if(iterator < new Date()){
+    			if(iterator <= new Date()){
     				dates.push(new Date(iterator.getTime()));
     			}
 

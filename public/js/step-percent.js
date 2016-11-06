@@ -126,3 +126,11 @@ for(var col in sections){
 
 switchTab('coupon', 'day')();
 switchTab('employee', 'day')();
+
+document.getElementById('enter-walk').addEventListener('click', function(){
+	document.getElementById('walk-mode').classList.add('open');
+});
+
+document.getElementById('exit-walk').addEventListener('click', function(){
+	document.getElementById('walk-mode').classList.remove('open');
+});
