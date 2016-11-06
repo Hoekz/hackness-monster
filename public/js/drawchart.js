@@ -51,26 +51,36 @@ var drawData = (function(){
     }
 })();
 
+var period = 'week';
+
 var drawPeriod = function(period, date){
     fit.fetch[period](date).then(function(data){
         drawData(data);
     });
 };
 
-document.getElementById('week').onclick = function(){
-    drawPeriod('week');
+var periods = {
+    'week': document.getElementById('week'),
+    'month': document.getElementById('month'),
+    'year': document.getElementById('year'),
+    'last-month': document.getElementById('last-month')
 };
 
-document.getElementById('month').onclick = function(){
-    drawPeriod('month');
-};
+for(var p in periods){
+    periods[p].addEventListener('click', function(){
+        for(var p in periods){
+            periods[p].classList.remove('selected');
+        }
 
-document.getElementById('last-month').onclick = function(){
-    var date = new Date();
-    date.setMonth(date.getMonth() - 1);
-    drawPeriod('month', date);
-};
+        this.classList.add('selected');
 
-document.getElementById('year').onclick = function(){
-    drawPeriod('year');
-};
+        if(this.id == 'last-month'){
+            var date = new Date();
+            date.setMonth(date.getMonth() - 1);
+            drawPeriod('month', date);
+            return;
+        }
+
+        drawPeriod(this.id);
+    });
+}

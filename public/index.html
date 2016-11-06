@@ -8,11 +8,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body>
-	<div class="navbar bg-theme dark">
+	<div class="navbar">
 		<div class="center-fill section">
-			<div>Step Scores</div>
+			<div id="logo"></div>
 			<div class="spacer"></div>
-			<div>Login</div>
+			<div id="hamburger">
+				<div id="account">My Account</div>
+				<div id="logout">Logout</div>
+			</div>
 		</div>
 	</div>
 	<div class="center-fill section">
@@ -41,7 +44,7 @@
 		<div class="third">
 			<h3>Your Data</h3>
 			<div id="chart_div"></div>
-			<button id='week'>This Week</button>
+			<button id='week' class="selected">This Week</button>
 			<button id='month'>This Month</button>
 			<button id='year'>This Year</button>
 			<button id='last-month'>Last Month</button>
@@ -92,7 +95,7 @@
 	<div id='overlay'>
 		<div id='overlay-body'>
 			<div>You have successfully claimed this prize.</div>
-			<div>-</div>
+			<hr>
 			<div>Click anywhere to close.</div>
 		</div>
 	</div>

@@ -38,8 +38,46 @@ html, body {
 	z-index: 999;
 	width: 100%;
 	margin-bottom: 1rem;
-	height: 2rem;
-	box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.5);
+	height: 2.5rem;
+	box-shadow: 0 0.2rem 0.2rem 0.2rem rgba(0,0,0,0.25);
+	background: white;
+	padding: 0.25rem;
+}
+
+.spacer {
+	flex: 1;
+	-webkit-flex: 1;
+}
+
+#logo {
+	background-image: url(../img/logo.png);
+	width: 12.5rem;
+	height: 2.5rem;
+	background-size: 100%;
+	background-position: center;
+	margin-top: -0.5rem;
+	cursor: pointer;
+}
+
+@media (max-width: 400px) {
+	#hamburger {
+		display: none;
+	}
+}
+
+#account, #logout {
+	transition: 0.25s ease all;
+    padding: 0.75rem;
+    height: 2.5rem;
+    margin-top: -0.25rem;
+    font-size: 1rem;
+    cursor: pointer;
+    float: left;
+}
+
+#account:hover, #logout:hover {
+	background: #0077a7;
+	color: white;
 }
 
 .section {
@@ -110,6 +148,11 @@ html, body {
 	margin-top: 1rem;
 }
 
+.card.claimed {
+	background: #0077a7;
+	color: white;
+}
+
 .card:hover, .card:focus {
 	z-index: 999;
 	margin: 0.5rem 0.25rem;
@@ -139,7 +182,7 @@ button {
 	transition: 0.25s ease all;
 }
 
-button:hover {
+button:hover, button.selected {
 	color: white;
 	background-color: #0077a7;
 	border: 1px solid #0077a7;

@@ -29,7 +29,7 @@
     	if(str == 'today/1d'){
     		data.push({
     			dateTime: formatDate(today),
-    			value: Math.floor((today.getHours() * 60 + today.getMinutes()) * (5 + 3 * Math.random()))
+    			value: Math.floor((today.getHours() * 60 + today.getMinutes()) * (5 + 5 * Math.random()))
     		});
     	}else{
     		//TODO: parse date info and generate date list

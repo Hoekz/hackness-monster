@@ -1,5 +1,5 @@
 var prizes = [];
-for(var i = 0; i < 9; i++){
+for(var i = 0; i < 20; i++){
 	prizes.push({
 		period: 'day',
 		steps: (i - (i % 2)) * 2500 + 5000,
@@ -53,6 +53,7 @@ var updateStepPercents = function(daySteps, weekSteps, monthSteps, yearSteps){
 		`rgb(${red}, ${green}, 20)`;
 	});
 };
+
 var sections = {
 	coupon: {
 		day: document.querySelector('#coupon-day-body'),
@@ -93,7 +94,8 @@ document.body.addEventListener('click', function(e){
 	if(e.target.classList.contains('claim')){
 		overlay.classList.add('open');
 		var card = e.target.parentNode.parentNode;
-		card.parentNode.removeChild(card);
+		card.classList.add('claimed');
+		e.target.parentNode.remove(e.target);
 	}
 });
 
